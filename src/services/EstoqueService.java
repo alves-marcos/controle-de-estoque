@@ -31,6 +31,7 @@ public class EstoqueService {
             System.out.println("Item de Nº " + (contador + 1));
             product.exibirResumo();
             contador ++;
+            System.out.println();
         }
     }
 

@@ -53,21 +53,21 @@ public class Product {
 
     // Sem setQuantidade, pois essa ação vem dos metodos adicionarEstoque() e removerEstoque();
 
-    public void adicionarEstoque(int quantidade){
+    public void adicionarEstoque(int quantidade) {
         this.quantidade = this.quantidade + quantidade;
     }
 
-    public void removerEstoque(int quantidade){
+    public void removerEstoque(int quantidade) {
         this.quantidade = this.quantidade - quantidade;
     }
 
-    public void exibirResumo(){
-        System.out.println("===  Produto ===");
-        System.out.println();
+    public void exibirResumo() {
+        System.out.println("==================================");
         System.out.println("ID: " + getId());
         System.out.println("Nome: " + getName());
-        System.out.println("Categoria: " +  getCategoria());
+        System.out.println("Categoria: " + getCategoria());
         System.out.println("Preço: " + getPrice());
         System.out.println("Quantidade: " + getQuantidade());
+        System.out.println("==================================");
     }
 }
