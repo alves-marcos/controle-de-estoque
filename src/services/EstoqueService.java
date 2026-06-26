@@ -21,40 +21,77 @@ public class EstoqueService {
         this.products = products;
     }
 
-    public void cadastrarProduto(Product p){
+
+    public void cadastrarProduto(Product p) {
         products.add(p);
     }
 
-    public void listarProdutos(){
+    public void listarProdutos() {
         int contador = 0;
-        for(Product product : products){
+        for (Product product : products) {
             System.out.println("Item de Nº " + (contador + 1));
             product.exibirResumo();
-            contador ++;
+            contador++;
             System.out.println();
         }
     }
 
-    public void buscarPorNome(String nome){
-        for(Product product : products){
-            if (product.getName().equalsIgnoreCase(nome)){
+    public void buscarPorNome(String nome) {
+        for (Product product : products) {
+            if (product.getName().equalsIgnoreCase(nome)) {
                 product.exibirResumo();
             }
         }
     }
 
-    public void buscarPorId(int id){
-        for(Product product : products){
-            if (product.getId() == id){
+    public void buscarPorId(int id) {
+        for (Product product : products) {
+            if (product.getId() == id) {
                 product.exibirResumo();
             }
         }
     }
 
-    public void removerProduto(int id){
-        for(Product product : products){
-            if (product.getId() == id){
+    public void apagarProdutoDoEstoque(int id) {
+        for (Product product : products) {
+            if (product.getId() == id) {
                 products.remove(product);
+            }
+        }
+    }
+
+    public void adicionarProduto(int qtde, int id) {
+        for (Product product : products) {
+            if (product.getId() == id){
+                product.adicionarEstoque(qtde);
+                product.exibirResumo();
+            }
+        }
+    }
+
+    public void adicionarProduto(int qtde, String name) {
+        for (Product product : products) {
+            if (product.getName().equalsIgnoreCase(name)){
+                product.adicionarEstoque(qtde);
+                product.exibirResumo();
+            }
+        }
+    }
+
+    public void removerProduto(int qtde, int id) {
+        for (Product product : products) {
+            if (product.getId() == id){
+                product.removerEstoque(qtde);
+                product.exibirResumo();
+            }
+        }
+    }
+
+    public void removerProduto(int qtde, String name) {
+        for (Product product : products) {
+            if (product.getName().equalsIgnoreCase(name)){
+                product.removerEstoque(qtde);
+                product.exibirResumo();
             }
         }
     }
