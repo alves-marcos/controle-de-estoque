@@ -56,7 +56,24 @@ public class EstoqueService {
         for (Product product : products) {
             if (product.getId() == id) {
                 products.remove(product);
+                break;
             }
+        }
+        for (Product product : products){
+            product.exibirResumo();
+        }
+    }
+
+    public void apagarProdutoDoEstoque(String nome) {
+        for (Product product : products) {
+            if (product.getName().equalsIgnoreCase(nome)) {
+                products.remove(product);
+                break;
+            }
+
+        }
+        for (Product product : products){
+            product.exibirResumo();
         }
     }
 

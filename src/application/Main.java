@@ -50,11 +50,15 @@ public class Main {
 
         estoqueService.buscarPorNome(produtoProcurado);
 
+        System.out.print("Informe o ID do Produto que Deseja encontrar: ");
+        int idProcurado = sc.nextInt();
+        estoqueService.buscarPorId(idProcurado);
+
         System.out.println("Informe o Produto que deseja acrescentar a quantidade: ");
         System.out.print("Buscar por ID ou Nome: 1 = ID /  2 = Nome: ");
         int escolha = sc.nextInt();
         sc.nextLine();
-        if (escolha == 2){
+        if (escolha == 2) {
             System.out.print("Informe o nome do Produto: ");
             String nomeProdutoParaAdicionar = sc.nextLine();
             System.out.println("Informe a quantidade que deseja acrescentar");
@@ -72,7 +76,7 @@ public class Main {
         System.out.print("Buscar por ID ou Nome: 1 = ID /  2 = Nome: ");
         int escolha02 = sc.nextInt();
         sc.nextLine();
-        if (escolha02 == 2){
+        if (escolha02 == 2) {
             System.out.print("Informe o nome do Produto: ");
             String nomeProdutoParaAdicionar = sc.nextLine();
             System.out.print("Informe a quantidade que deseja tirar quantidade de estoque: ");
@@ -86,9 +90,20 @@ public class Main {
             estoqueService.removerProduto(qtdeAcrescentada, idProdutoParaAdicionar);
         }
 
+        System.out.println("Informe o produto que deseja remover do estoque: ");
+        System.out.print("Informe o ID ou Nome: 1 = ID, 2 = Nome: ");
+        int escolhaApagar = sc.nextInt();
+        sc.nextLine();
 
-
-
+        if (escolhaApagar == 1) {
+            System.out.print("Informe o ID do produto: ");
+            int idApagar = sc.nextInt();
+            estoqueService.apagarProdutoDoEstoque(idApagar);
+        } else {
+            System.out.print("Informe o Nome do Produto que deseja apagar: ");
+            String nomeApagar = sc.nextLine();
+            estoqueService.apagarProdutoDoEstoque(nomeApagar);
+        }
 
 
         sc.close();
